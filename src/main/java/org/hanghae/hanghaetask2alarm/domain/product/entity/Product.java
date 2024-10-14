@@ -19,4 +19,12 @@ public class Product {
 
     @Column(nullable = false)
     private Long stock;
+
+    public void updateStock(Long stock) {
+        this.stock += stock;
+    }
+
+    public void updateRestockRound() {
+        this.restockRound += 1;
+    }
 }
