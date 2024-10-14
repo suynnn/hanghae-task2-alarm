@@ -1,11 +1,13 @@
 package org.hanghae.hanghaetask2alarm.domain.productUserNotificationHistory.entity;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hanghae.hanghaetask2alarm.domain.product.entity.Product;
 import org.hanghae.hanghaetask2alarm.domain.user.entity.User;
 import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
 
@@ -13,6 +15,7 @@ import java.time.LocalDateTime;
 @Table
 @Getter
 @NoArgsConstructor
+@EntityListeners(AuditingEntityListener.class)
 public class ProductUserNotificationHistory {
 
     @Id
@@ -28,9 +31,16 @@ public class ProductUserNotificationHistory {
     private User user;
 
     @Column(nullable = false)
-    private Long restock_round;
+    private Long restockRound;
 
     @CreatedDate
     @Column(nullable = false)
     private LocalDateTime sentAt;
+
+    @Builder
+    public ProductUserNotificationHistory(Product product, User user, Long restockRound) {
+        this.product = product;
+        this.user = user;
+        this.restockRound = restockRound;
+    }
 }

@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import org.hanghae.hanghaetask2alarm.domain.product.entity.Product;
 import org.hanghae.hanghaetask2alarm.domain.user.entity.User;
 import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
 
@@ -13,6 +15,7 @@ import java.time.LocalDateTime;
 @Table
 @Getter
 @NoArgsConstructor
+@EntityListeners(AuditingEntityListener.class)
 public class ProductUserNotification {
 
     @Id
@@ -35,6 +38,11 @@ public class ProductUserNotification {
     @Column(nullable = false)
     private LocalDateTime createdAt;
 
+    @LastModifiedDate
     @Column(nullable = true)
     private LocalDateTime updatedAt;
+
+    public void updateNotificationReceiptStatus() {
+        this.notificationReceiptStatus = true;
+    }
 }
