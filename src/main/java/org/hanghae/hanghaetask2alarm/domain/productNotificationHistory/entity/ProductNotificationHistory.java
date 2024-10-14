@@ -21,4 +21,7 @@ public class ProductNotificationHistory {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private ProductNotificationStatus productNotificationStatus;
+
+    @Column(nullable = false)
+    private Long lastSentUserId;
 }

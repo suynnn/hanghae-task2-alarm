@@ -3,7 +3,11 @@ package org.hanghae.hanghaetask2alarm.domain.productUserNotificationHistory.enti
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.hanghae.hanghaetask2alarm.domain.productUserNotification.entity.ProductUserNotification;
+import org.hanghae.hanghaetask2alarm.domain.product.entity.Product;
+import org.hanghae.hanghaetask2alarm.domain.user.entity.User;
+import org.springframework.data.annotation.CreatedDate;
+
+import java.time.LocalDateTime;
 
 @Entity
 @Table
@@ -16,6 +20,17 @@ public class ProductUserNotificationHistory {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "product_user_notification_id", nullable = false)
-    private ProductUserNotification productUserNotification;
+    @JoinColumn(name = "product_id", nullable = false)
+    private Product product;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
+
+    @Column(nullable = false)
+    private Long restock_round;
+
+    @CreatedDate
+    @Column(nullable = false)
+    private LocalDateTime sentAt;
 }
