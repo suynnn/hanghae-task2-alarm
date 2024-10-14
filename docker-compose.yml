@@ -1,0 +1,39 @@
+version: "3.8"
+services:
+  mysql:
+    image: mysql:8.0.33
+    container_name: hanghae-mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: "hanghaeTask2"
+      MYSQL_USER: "admin"
+      MYSQL_PASSWORD: "1234"
+      MYSQL_ROOT_PASSWORD: "1234"
+      TZ: Asia/Seoul
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - my-hanghae-task2-network
+
+#  spring:
+#    build:
+#      dockerfile: ./Dockerfile
+#    restart: always
+#    environment:
+#      - SPRING_PROFILES_ACTIVE=docker
+#    ports:
+#      - 8080:8080
+#    depends_on:
+#      - mysql
+#    networks:
+#      - my-hanghae-task1-network
+
+volumes:
+  mysql_data:
+
+networks:
+  my-hanghae-task2-network:
