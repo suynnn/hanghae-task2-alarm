@@ -2,8 +2,8 @@ package org.hanghae.hanghaetask2alarm.common.event;
 
 import lombok.RequiredArgsConstructor;
 import org.hanghae.hanghaetask2alarm.common.restockalarm.ResolveAlarmService;
-import org.hanghae.hanghaetask2alarm.domain.productUserNotification.entity.ProductUserNotification;
-import org.hanghae.hanghaetask2alarm.domain.productUserNotification.service.ProductUserNotificationService;
+import org.hanghae.hanghaetask2alarm.domain.notification.productUserNotification.entity.ProductUserNotification;
+import org.hanghae.hanghaetask2alarm.domain.notification.productUserNotification.service.ProductUserNotificationService;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 

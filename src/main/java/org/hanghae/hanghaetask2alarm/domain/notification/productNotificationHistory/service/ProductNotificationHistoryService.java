@@ -1,12 +1,12 @@
-package org.hanghae.hanghaetask2alarm.domain.productNotificationHistory.service;
+package org.hanghae.hanghaetask2alarm.domain.notification.productNotificationHistory.service;
 
 import lombok.RequiredArgsConstructor;
 import org.hanghae.hanghaetask2alarm.domain.product.entity.Product;
 import org.hanghae.hanghaetask2alarm.domain.product.exception.ProductNotFoundException;
 import org.hanghae.hanghaetask2alarm.domain.product.repository.ProductRepository;
-import org.hanghae.hanghaetask2alarm.domain.productNotificationHistory.entity.ProductNotificationHistory;
-import org.hanghae.hanghaetask2alarm.domain.productNotificationHistory.entity.ProductNotificationStatus;
-import org.hanghae.hanghaetask2alarm.domain.productNotificationHistory.repository.ProductNotificationHistoryRepository;
+import org.hanghae.hanghaetask2alarm.domain.notification.productNotificationHistory.entity.ProductNotificationHistory;
+import org.hanghae.hanghaetask2alarm.domain.notification.productNotificationHistory.entity.ProductNotificationStatus;
+import org.hanghae.hanghaetask2alarm.domain.notification.productNotificationHistory.repository.ProductNotificationHistoryRepository;
 import org.springframework.stereotype.Service;
 
 @Service

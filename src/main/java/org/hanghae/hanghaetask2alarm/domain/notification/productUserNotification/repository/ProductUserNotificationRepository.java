@@ -1,6 +1,6 @@
-package org.hanghae.hanghaetask2alarm.domain.productUserNotification.repository;
+package org.hanghae.hanghaetask2alarm.domain.notification.productUserNotification.repository;
 
-import org.hanghae.hanghaetask2alarm.domain.productUserNotification.entity.ProductUserNotification;
+import org.hanghae.hanghaetask2alarm.domain.notification.productUserNotification.entity.ProductUserNotification;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

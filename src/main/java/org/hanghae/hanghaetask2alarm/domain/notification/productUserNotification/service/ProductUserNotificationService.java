@@ -1,8 +1,8 @@
-package org.hanghae.hanghaetask2alarm.domain.productUserNotification.service;
+package org.hanghae.hanghaetask2alarm.domain.notification.productUserNotification.service;
 
 import lombok.RequiredArgsConstructor;
-import org.hanghae.hanghaetask2alarm.domain.productUserNotification.entity.ProductUserNotification;
-import org.hanghae.hanghaetask2alarm.domain.productUserNotification.repository.ProductUserNotificationRepository;
+import org.hanghae.hanghaetask2alarm.domain.notification.productUserNotification.entity.ProductUserNotification;
+import org.hanghae.hanghaetask2alarm.domain.notification.productUserNotification.repository.ProductUserNotificationRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

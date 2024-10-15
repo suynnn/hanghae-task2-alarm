@@ -1,12 +1,12 @@
-package org.hanghae.hanghaetask2alarm.domain.productUserNotification.entity;
+package org.hanghae.hanghaetask2alarm.domain.notification.productUserNotificationHistory.entity;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hanghae.hanghaetask2alarm.domain.product.entity.Product;
 import org.hanghae.hanghaetask2alarm.domain.user.entity.User;
 import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
@@ -16,12 +16,11 @@ import java.time.LocalDateTime;
 @Getter
 @NoArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
-public class ProductUserNotification {
+public class ProductUserNotificationHistory {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id", nullable = false)
@@ -31,18 +30,17 @@ public class ProductUserNotification {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @Column(nullable = false, columnDefinition = "TINYINT(1)")
-    private Boolean notificationReceiptStatus;
+    @Column(nullable = false)
+    private Long restockRound;
 
     @CreatedDate
     @Column(nullable = false)
-    private LocalDateTime createdAt;
+    private LocalDateTime sentAt;
 
-    @LastModifiedDate
-    @Column(nullable = true)
-    private LocalDateTime updatedAt;
-
-    public void updateNotificationReceiptStatus() {
-        this.notificationReceiptStatus = true;
+    @Builder
+    public ProductUserNotificationHistory(Product product, User user, Long restockRound) {
+        this.product = product;
+        this.user = user;
+        this.restockRound = restockRound;
     }
 }

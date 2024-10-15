@@ -1,4 +1,4 @@
-package org.hanghae.hanghaetask2alarm.domain.productNotificationHistory.entity;
+package org.hanghae.hanghaetask2alarm.domain.notification.productNotificationHistory.entity;
 
 public enum ProductNotificationStatus {
     IN_PROGRESS,
