@@ -22,7 +22,9 @@ public class ProductController {
     public ResponseEntity<Void> triggerRestockNotification(@PathVariable("productId") Long productId) {
 
         // 재입고 알림을 전송하기 전, 상품의 재입고 회차를 1 증가 시킴
+        // 상품 재고도 업데이트
         productService.updateProductRestockRound(productId);
+        productService.updateProductStock(productId);
 
         // 해당 상품에 대한 알림 이벤트 발행
         publisher.publishEvent(new RestockedEvent(productId));

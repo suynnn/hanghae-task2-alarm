@@ -1,6 +1,7 @@
 package org.hanghae.hanghaetask2alarm.domain.productNotificationHistory.entity;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hanghae.hanghaetask2alarm.domain.product.entity.Product;
@@ -24,4 +25,11 @@ public class ProductNotificationHistory {
 
     @Column(nullable = false)
     private Long lastSentUserId;
+
+    @Builder
+    public ProductNotificationHistory (Product product, ProductNotificationStatus productNotificationStatus, Long lastSentUserId) {
+        this.product = product;
+        this.productNotificationStatus = productNotificationStatus;
+        this.lastSentUserId = lastSentUserId;
+    }
 }
